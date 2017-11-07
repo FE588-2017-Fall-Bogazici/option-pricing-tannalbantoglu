@@ -1,0 +1,18 @@
+import numpy as np
+r=0.05
+S0=100
+K=110
+sigma=0.1
+T=1
+C=0
+P=0
+N=1000
+for i in range(N):
+    W=np.random.randn()*np.sqrt(T)
+    S1=S0*math.exp((r-0.05*sigma**2)*T+sigma*W)
+    C+=max(0,S1-K)
+    P+=max(0,K-S1)
+call_price=(C/N)*np.exp(-r*T)
+put_price=(P/N)*np.exp(-r*T)
+print(call_price)
+print(put_price)
